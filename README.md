@@ -2,6 +2,11 @@
 
 Application web de gestion de tâches conteneurisée avec Docker.
 
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Jenkins](https://img.shields.io/badge/Jenkins-D24939?style=for-the-badge&logo=jenkins&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)
+
 ## Services
 
 | Service | Technologie | Port |
@@ -37,11 +42,17 @@ smarttask-devops/
 
 ## Construction des images
 
+### Version v1 (locale)
 docker build -t yvesmayombo/smarttask-frontend:v1 ./frontend
 docker build -t yvesmayombo/smarttask-backend:v1 ./backend
 docker build -t yvesmayombo/smarttask-db:v1 ./database
 
-## Déploiement
+### Version v2 (CI/CD avec Jenkins)
+docker build -t yvesmayombo/smarttask-frontend:v2 ./frontend
+docker build -t yvesmayombo/smarttask-backend:v2 ./backend
+docker build -t yvesmayombo/smarttask-db:v2 ./database
+
+## Déploiement avec Docker Compose
 
 docker compose up -d
 
@@ -51,8 +62,9 @@ docker compose down
 
 ## Accès
 
-Frontend : http://192.168.159.219:8080
-Backend : http://192.168.159.219:5004/api/health
+- Frontend : http://192.168.159.219:8080
+- Backend : http://192.168.159.219:5004/api/health
+- Jenkins : http://192.168.159.219:8090
 
 ## Commandes utiles
 
@@ -66,11 +78,21 @@ docker compose restart
 - Dev : Branche de développement
 - Prod : Branche de production
 
+## CI/CD avec Jenkins
+
+Un pipeline Multibranch est configuré pour automatiser :
+- La construction des images Docker
+- Le push vers Docker Hub
+
+## Lien du dépôt
+
+https://github.com/alain2000725/smarttask-devops
+
 ## Auteur
 
-Alain MOUSSAVOU
-Email : moussavoualain03@gmail.com
-GitHub : alain2000725
+**Alain MOUSSAVOU**
+- Email : moussavoualain03@gmail.com
+- GitHub : alain2000725
 
 ## Technologies
 
